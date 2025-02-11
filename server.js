@@ -3,10 +3,15 @@
 const express = require('express');
 const multer  = require('multer');
 const path = require('path');
+const cors = require('cors');
 const fs = require('fs');
 const { execFile } = require('child_process');
 
 const app = express();
+
+// Enable CORS for all origins (or restrict by passing an options object)
+app.use(cors());
+
 const PORT = process.env.PORT || 5000;
 
 // Ensure uploads directory exists

@@ -5,12 +5,15 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "heroku-postbuild": "if [ \"$SKIP_CLIENT_BUILD\" = \"true\" ]; then echo 'Skipping client build'; else npm run build; fi"
   },
   "dependencies": {
-    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
     "multer": "^1.4.5-lts.1",
-    "path": "^0.12.7"
+    "vm2": "^3.9.19"
   },
   "engines": {
     "node": "14.x"

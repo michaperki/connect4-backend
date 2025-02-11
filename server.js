@@ -75,7 +75,7 @@ app.post('/api/ai-move/:modelId', (req, res) => {
   }
   // Pass board as a JSON string. Note: the custom AI should convert it to a numpy array.
   const boardArg = JSON.stringify(board);
-  execFile('python', [modelPath, '--board', boardArg, '--player', aiPlayer.toString()], { timeout: 5000 }, (error, stdout, stderr) => {
+  execFile('python3', [modelPath, '--board', boardArg, '--player', aiPlayer.toString()], { timeout: 5000 }, (error, stdout, stderr) => {
     if (error) {
       console.error('Error executing Python AI:', error);
       return res.status(500).json({ error: 'Error executing AI model' });
